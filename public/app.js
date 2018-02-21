@@ -1,6 +1,10 @@
 const app = function () {
   const url = "https://s3-eu-west-1.amazonaws.com/brewdogapi/beers.json";
   makeRequest(url, requestComplete);
+  // const beers = new BeerList();
+  // beers.populate();
+  // // populateDropDown(beers);
+  // console.log(beers[beers]);
 };
 
 const makeRequest = function(url, callback){
@@ -21,12 +25,18 @@ const requestComplete = function(){
 const populateDropDown = function(beers){
 
   const dropdown = document.querySelector('#beer-list-dropdown');
-  beers.forEach(function(beer){
+  beers.forEach(function(beer, currentIndex){
     const option = document.createElement('option');
     option.innerText = beer.name;
+    option.value = currentIndex;
     dropdown.append(option);
   });
 
+  // dropdown.addEventListener('change', findBeer(beers));
+}
+
+const findBeers = function(beers){
+  const beer = beers[this.value];
 }
 
 const addNewLIWithImage = function(ul, liImage, liText){
