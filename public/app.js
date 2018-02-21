@@ -18,16 +18,29 @@ const requestComplete = function(){
   populateBeerList(beers);
 }
 
-const addNewLI = function(ul, liText){
+const addNewLIWithImage = function(ul, liImage, liText){
   const li = document.createElement('li');
-  li.innerText = liText;
+  li.appendChild(liImage);
+  const p = document.createElement('p');
+  p.innerHTML = liText;
+  li.appendChild(p);
+  // li.innerHTML = `<p>${liText}</p>`;
+  // li.appendChild(liImage);
   ul.appendChild(li);
+  // ul.appendChild(liImage);
+}
+
+const createImgTag = function(img){
+  const newImageTag = document.createElement('img');
+  newImageTag.setAttribute('src', img);
+  return newImageTag
 }
 
 const populateBeerList = function(beers){
   const beerListView = document.querySelector('#beer-list');
   beers.forEach(function(beer){
-    addNewLI(beerListView, beer.name);
+    const beerImage = createImgTag(beer.image_url);
+    addNewLIWithImage(beerListView, beerImage, beer.name);
   });
 }
 
