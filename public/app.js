@@ -14,8 +14,19 @@ const requestComplete = function(){
   if(this.status !== 200) return;
   const jsonString = this.responseText;
   const beers = JSON.parse(jsonString);
+  populateDropDown(beers);
+  // populateBeerList(beers);
+}
 
-  populateBeerList(beers);
+const populateDropDown = function(beers){
+
+  const dropdown = document.querySelector('#beer-list-dropdown');
+  beers.forEach(function(beer){
+    const option = document.createElement('option');
+    option.innerText = beer.name;
+    dropdown.append(option);
+  });
+
 }
 
 const addNewLIWithImage = function(ul, liImage, liText){
