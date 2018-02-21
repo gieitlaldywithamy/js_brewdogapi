@@ -1,5 +1,16 @@
 img {
   height: 150px;
+  display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+article {
+  display: flex;
+}
+h1 {
+  text-align: center;
 }
 
 /* li > image{
@@ -10,6 +21,25 @@ li > p {
   float:right;
 } */
 
-ul > li {
+/* ul > li {
   display: inline-block;
+} */
+
+ul {
+  list-style-type: none;
+}
+
+ul { /* targets all ul elements */
+    /* general styles */
+}
+ul li { /* targets all li elements within a ul */
+    /* general styles */
+}
+ul li ul { /* targets all ul elements within an li element, itself within a ul */
+    /* overrule general 'outer' styles */
+    margin-left: 10px;
+}
+ul li ul li { /* targets all li elements within a ul element,
+                 within an li element, itself within a ul...and so on */
+    /* overrule general 'outer' styles */
 }
